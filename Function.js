@@ -9,13 +9,13 @@ document.addEventListener('DOMContentLoaded', () => {
         btnStart.addEventListener('click', () => {
             mainMenu.classList.add('hidden'); // Menutup menu dan masuk ke kanvas asli
         });
-    }
+    };
 
     if (btnGuide) {
         btnGuide.addEventListener('click', () => {
             guideBox.classList.toggle('hidden'); // Membuka/tutup panduan
         });
-    }
+    };
     // ----------------------------------
 
     const viewport = document.getElementById('viewport');
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateCanvasTransform() {
         canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`;
-    }
+    };
 
     // (Sisa kodingan aslimu dari sini ke bawah tetap sama persis tanpa ada yang diubah)
     // ... [lanjutkan dengan semua fungsi aslimu: panning, zoom, createNoteBlock, dll]
