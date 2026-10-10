@@ -1,23 +1,21 @@
-// INISIALISASI UTAMA APLIKASI
 document.addEventListener('DOMContentLoaded', () => {
   const mainMenu = document.getElementById('main-menu');
   const btnStart = document.getElementById('btn-start');
   const btnGuide = document.getElementById('btn-guide');
   const guideBox = document.getElementById('guide-box');
 
-  // Tombol Mulai: Menutup menu utama dan masuk ke area kanvas
+  // Ketika tombol "Buat Catatan Baru" diklik, pindah ke halaman kanvas di dalam folder "Scratch Note"
   if (btnStart) {
     btnStart.addEventListener('click', () => {
-      mainMenu.classList.add('hidden');
+      // Mengarahkan ke file index.html di dalam folder Scratch Note
+      window.location.href = "Scratch%20Note/index.html";
     });
   }
 
-  // Tombol Panduan: Membuka/menutup kotak petunjuk
+  // Tombol Panduan
   if (btnGuide) {
     btnGuide.addEventListener('click', () => {
       guideBox.classList.toggle('hidden');
     });
   }
-
-  console.log("Scratch Notes Main Menu Loaded Successfully!");
 });
