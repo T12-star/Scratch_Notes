@@ -1,138 +1,100 @@
-/* RESET & BASIC STYLES */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-body, html {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f1f5f9;
-}
-
-/* TOOLBAR */
-#toolbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 60px;
-  background-color: #ffffff;
-  border-bottom: 1px solid #e2e8f0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  z-index: 10;
-}
-
-.btn-add {
-  background-color: #10b981;
-  color: white;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.btn-add:hover {
-  background-color: #059669;
-}
-
-/* CANVAS BOARD */
-#canvas-container {
-  width: 100vw;
-  height: calc(100vh - 60px);
-  margin-top: 60px;
-  position: relative;
-  overflow: auto;
-  background-color: #f8fafc;
-  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-#note-board {
-  width: 3000px;
-  height: 3000px;
-  position: relative;
-}
-
-/* BLOK CATATAN */
-.note-card {
-  position: absolute;
-  width: 220px;
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-  border-left: 6px solid #4f46e5;
-  padding: 12px;
-  cursor: move;
-}
-
-.note-card textarea {
-  width: 100%;
-  height: 80px;
-  border: none;
-  outline: none;
-  resize: none;
-  font-family: inherit;
-  font-size: 0.9rem;
-  color: #334155;
-  background: transparent;
-}
-
-/* MAIN MENU OVERLAY STYLES */
+/* ================= MAIN MENU OVERLAY STYLES ================= */
 .menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(15, 23, 42, 0.85);
-  backdrop-filter: blur(8px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    user-select: none;
 }
 
 .menu-overlay.hidden {
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
 
 .menu-card {
-  background: #ffffff;
-  padding: 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-  text-align: center;
-  max-width: 420px;
-  width: 90%;
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 420px;
+    width: 90%;
+    user-select: text;
 }
 
-.app-title { font-size: 2.2rem; margin-bottom: 0.5rem; color: #1e293b; }
-.app-subtitle { color: #64748b; font-size: 0.95rem; margin-bottom: 2rem; }
-
-.menu-actions { display: flex; flex-direction: column; gap: 12px; }
-
-.btn-primary, .btn-secondary {
-  padding: 12px 20px; border-radius: 8px; font-weight: 600; cursor: pointer; border: none; font-size: 1rem;
+.app-title {
+    font-size: 2.2rem;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
 }
-.btn-primary { background-color: #4f46e5; color: white; }
-.btn-primary:hover { background-color: #4338ca; }
-.btn-secondary { background-color: #f1f5f9; color: #334155; }
-.btn-secondary:hover { background-color: #e2e8f0; }
+
+.app-subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-card .btn-primary, .menu-card .btn-secondary {
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.menu-card .btn-primary {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.menu-card .btn-primary:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+}
+
+.menu-card .btn-secondary {
+    background-color: #f1f5f9;
+    color: #334155;
+}
+
+.menu-card .btn-secondary:hover {
+    background-color: #e2e8f0;
+}
 
 .guide-box {
-  margin-top: 1.5rem; padding: 1rem; background-color: #f8fafc; border-radius: 8px; text-align: left; font-size: 0.85rem; color: #334155; border: 1px solid #e2e8f0;
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 0.85rem;
+    color: #334155;
+    border: 1px solid #e2e8f0;
 }
-.guide-box.hidden { display: none; }
-.guide-box ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+
+.guide-box.hidden {
+    display: none;
+}
+
+.guide-box ul {
+    padding-left: 1.2rem;
+    margin-top: 0.5rem;
+}
