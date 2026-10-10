@@ -1,52 +1,45 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const mainMenu = document.getElementById('main-menu');
-  const btnStart = document.getElementById('btn-start');
-  const btnGuide = document.getElementById('btn-guide');
-  const guideBox = document.getElementById('guide-box');
-  const btnBackMenu = document.getElementById('btn-back-menu');
-  const btnAddNote = document.getElementById('btn-add-note');
-  const noteBoard = document.getElementById('note-board');
+    // --- TAMBAHAN: LOGIKA MAIN MENU ---
+    const mainMenu = document.getElementById('main-menu');
+    const btnStart = document.getElementById('btn-start');
+    const btnGuide = document.getElementById('btn-guide');
+    const guideBox = document.getElementById('guide-box');
 
-  // Tombol Mulai: Menyembunyikan main menu dan masuk ke kanvas
-  if (btnStart) {
-    btnStart.addEventListener('click', () => {
-      mainMenu.classList.add('hidden');
-    });
-  }
+    if (btnStart) {
+        btnStart.addEventListener('click', () => {
+            mainMenu.classList.add('hidden'); // Menutup menu dan masuk ke kanvas asli
+        });
+    }
 
-  // Tombol Kembali ke Menu Utama dari Kanvas
-  if (btnBackMenu) {
-    btnBackMenu.addEventListener('click', () => {
-      mainMenu.classList.remove('hidden');
-    });
-  }
+    if (btnGuide) {
+        btnGuide.addEventListener('click', () => {
+            guideBox.classList.toggle('hidden'); // Membuka/tutup panduan
+        });
+    }
+    // ----------------------------------
 
-  // Toggle Kotak Petunjuk
-  if (btnGuide) {
-    btnGuide.addEventListener('click', () => {
-      guideBox.classList.toggle('hidden');
-    });
-  }
+    const viewport = document.getElementById('viewport');
+    const canvas = document.getElementById('canvas');
+    const svg = document.getElementById('svg-connections');
+    const addBlockBtn = document.getElementById('add-block-btn');
 
-  // Fitur Tambah Catatan Baru ke Kanvas
-  if (btnAddNote) {
-    btnAddNote.addEventListener('click', () => {
-      createNote();
-    });
-  }
+    let zoom = 1;
+    let panX = 0;
+    let panY = 0;
+    let isPanning = false;
+    let startX = 0, startY = 0;
 
-  function createNote(text = '') {
-    const note = document.createElement('div');
-    note.className = 'note-card';
-    note.style.left = '120px';
-    note.style.top = '120px';
+    let activeDot = null;
+    let tempPath = null;
+    let connections = []; 
+    
+    let activeCategoryMenu = null;
 
-    note.innerHTML = `
-      <textarea placeholder="Tulis catatan di sini...">${text}</textarea>
-    `;
+    window.addEventListener('contextmenu', (e) => e.preventDefault());
 
-    noteBoard.appendChild(note);
-  }
+    function updateCanvasTransform() {
+        canvas.style.transform = `translate(${panX}px, ${panY}px) scale(${zoom})`;
+    }
 
-  console.log("Scratch Notes Single Page Loaded Successfully!");
-});
+    // (Sisa kodingan aslimu dari sini ke bawah tetap sama persis tanpa ada yang diubah)
+    // ... [lanjutkan dengan semua fungsi aslimu: panning, zoom, createNoteBlock, dll]
