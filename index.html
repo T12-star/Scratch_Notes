@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scratch Notes</title>
-  <link rel="stylesheet" href="Style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scratch Notes</title>
+    <link rel="stylesheet" href="Style.css">
 </head>
 <body>
 
-  <!-- 1. MAIN MENU / LANDING PAGE OVERLAY -->
-  <div id="main-menu" class="menu-overlay">
-    <div class="menu-card">
-      <h1 class="app-title">📝 Scratch Notes</h1>
-      <p class="app-subtitle">Visual Canvas Note-Taking Inspired by Scratch</p>
-      
-      <div class="menu-actions">
-        <button id="btn-start" class="btn-primary">🚀 Buat Catatan Baru</button>
-        <button id="btn-guide" class="btn-secondary">❓ Petunjuk Penggunaan</button>
-      </div>
+    <!-- ================= MAIN MENU OVERLAY ================= -->
+    <div id="main-menu" class="menu-overlay">
+        <div class="menu-card">
+            <h1 class="app-title">📝 Scratch Notes</h1>
+            <p class="app-subtitle">Visual Canvas Note-Taking Inspired by Scratch</p>
+            
+            <div class="menu-actions">
+                <button id="btn-start" class="btn-primary">🚀 Buat Catatan Baru</button>
+                <button id="btn-guide" class="btn-secondary">❓ Petunjuk Penggunaan</button>
+            </div>
 
-      <!-- PETUNJUK PENGGUNAAN -->
-      <div id="guide-box" class="guide-box hidden">
-        <h3>Cara Menggunakan:</h3>
-        <ul>
-          <li>🟡 <b>Navigasi:</b> Drag pada area kanvas kosong untuk menggeser view.</li>
-          <li>🔵 <b>Blok Catatan:</b> Klik tombol "+ Catatan Baru" di atas.</li>
-          <li>🟣 <b>Asset:</b> File gambar/folder tambahan tetap aman tersimpan.</li>
-        </ul>
-      </div>
+            <!-- PETUNJUK PENGGUNAAN -->
+            <div id="guide-box" class="guide-box hidden">
+                <h3>Cara Menggunakan:</h3>
+                <ul>
+                    <li>🟡 <b>Navigasi:</b> Klik kanan tahan + <i>drag</i> pada kanvas untuk menggeser view.</li>
+                    <li>🔵 <b>Blok Catatan:</b> Klik tombol "+" di kiri atas untuk nambah catatan.</li>
+                    <li>🟣 <b>Koneksi:</b> Tarik garis antar dot biru untuk menghubungkan ide.</li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
+    <!-- ===================================================== -->
 
-  <!-- 2. TOOLBAR ATAS (Hanya tampil setelah masuk kanvas) -->
-  <div id="toolbar">
-    <h2>📝 Scratch Notes</h2>
-    <div style="display: flex; gap: 10px;">
-      <button id="btn-back-menu" class="btn-secondary" style="padding: 6px 12px; font-size: 0.9rem; cursor: pointer;">🏠 Menu</button>
-      <button id="btn-add-note" class="btn-add">+ Catatan Baru</button>
+    <!-- Tombol Add Block Melayang (Kiri Atas) -->
+    <button id="add-block-btn" class="ui-add-btn">
+        <img src="Add Block.png" alt="Add Block +">
+    </button>
+
+    <!-- Viewport dan Kanvas Utama -->
+    <div class="viewport" id="viewport">
+        <div class="canvas" id="canvas">
+            <!-- SVG Layer untuk Garis Penghubung -->
+            <svg class="svg-layer" id="svg-connections" width="100%" height="100%"></svg>
+            
+            <!-- Blok Note akan dimuat ke sini -->
+        </div>
     </div>
-  </div>
 
-  <!-- 3. KANVAS UTAMA CATATAN -->
-  <div id="canvas-container">
-    <div id="note-board"></div>
-  </div>
-
-  <script src="Function.js"></script>
+    <script src="Function.js"></script>
 </body>
 </html>
