@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scratch Notes</title>
-    <link rel="stylesheet" href="Style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch Notes</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- Tombol Add Block Melayang (Kiri Atas) -->
-    <button id="add-block-btn" class="ui-add-btn">
-        <img src="Add Block.png" alt="Add Block +">
-    </button>
+  <!-- MAIN MENU / LANDING PAGE OVERLAY -->
+  <div id="main-menu" class="menu-overlay">
+    <div class="menu-card">
+      <h1 class="app-title">📝 Scratch Notes</h1>
+      <p class="app-subtitle">Visual Canvas Note-Taking Inspired by Scratch</p>
+      
+      <div class="menu-actions">
+        <button id="btn-start" class="btn-primary">🚀 Buat Catatan Baru</button>
+        <button id="btn-guide" class="btn-secondary">❓ Petunjuk Penggunaan</button>
+      </div>
 
-    <!-- Viewport dan Kanvas Utama -->
-    <div class="viewport" id="viewport">
-        <div class="canvas" id="canvas">
-            <!-- SVG Layer untuk Garis Penghubung -->
-            <svg class="svg-layer" id="svg-connections" width="100%" height="100%"></svg>
-            
-            <!-- Blok Note akan dimuat ke sini -->
-        </div>
+      <!-- PETUNJUK PENGGUNAAN -->
+      <div id="guide-box" class="guide-box hidden">
+        <h3>Cara Menggunakan:</h3>
+        <ul>
+          <li>🟡 <b>Navigasi:</b> Drag pada kanvas kosong untuk menggeser view (Pan).</li>
+          <li>🔵 <b>Blok Catatan:</b> Buat catatan sesuai warna kategori pentingmu.</li>
+          <li>🟣 <b>Koneksi:</b> Tarik garis antar node untuk menghubungkan ide.</li>
+        </ul>
+      </div>
     </div>
+  </div>
 
-    <script src="Function.js"></script>
+  <!-- KANVAS UTAMA CATATAN -->
+  <div id="canvas-container">
+    <!-- Area kerja kanvas kamu akan tampil di sini -->
+    <div style="padding: 40px; color: #64748b; font-family: sans-serif;">
+      <h2>Area Kanvas Scratch Notes</h2>
+      <p>Tekan tombol "Buat Catatan Baru" untuk mulai mencatat.</p>
+    </div>
+  </div>
+
+  <script src="function.js"></script>
 </body>
 </html>
