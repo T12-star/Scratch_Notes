@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Scratch Notes</title>
-  <link rel="stylesheet" href="Style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- MAIN MENU / LANDING PAGE OVERLAY -->
+  <!-- 1. MAIN MENU / LANDING PAGE OVERLAY -->
   <div id="main-menu" class="menu-overlay">
     <div class="menu-card">
       <h1 class="app-title">📝 Scratch Notes</h1>
@@ -23,23 +23,28 @@
       <div id="guide-box" class="guide-box hidden">
         <h3>Cara Menggunakan:</h3>
         <ul>
-          <li>🟡 <b>Navigasi:</b> Drag pada kanvas kosong untuk menggeser view (Pan).</li>
-          <li>🔵 <b>Blok Catatan:</b> Buat catatan sesuai warna kategori pentingmu.</li>
-          <li>🟣 <b>Koneksi:</b> Tarik garis antar node untuk menghubungkan ide.</li>
+          <li>🟡 <b>Navigasi:</b> Drag pada area kanvas kosong untuk menggeser view.</li>
+          <li>🔵 <b>Blok Catatan:</b> Klik tombol "+ Catatan Baru" di atas.</li>
+          <li>🟣 <b>Asset:</b> File gambar/folder tambahan tetap aman tersimpan.</li>
         </ul>
       </div>
     </div>
   </div>
 
-  <!-- KANVAS UTAMA CATATAN -->
-  <div id="canvas-container">
-    <!-- Area kerja kanvas kamu akan tampil di sini -->
-    <div style="padding: 40px; color: #64748b; font-family: sans-serif;">
-      <h2>Area Kanvas Scratch Notes</h2>
-      <p>Tekan tombol "Buat Catatan Baru" untuk mulai mencatat.</p>
+  <!-- 2. TOOLBAR ATAS (Hanya tampil setelah masuk kanvas) -->
+  <div id="toolbar">
+    <h2>📝 Scratch Notes</h2>
+    <div style="display: flex; gap: 10px;">
+      <button id="btn-back-menu" class="btn-secondary" style="padding: 6px 12px; font-size: 0.9rem; cursor: pointer;">🏠 Menu</button>
+      <button id="btn-add-note" class="btn-add">+ Catatan Baru</button>
     </div>
   </div>
 
-  <script src="Function.js"></script>
+  <!-- 3. KANVAS UTAMA CATATAN -->
+  <div id="canvas-container">
+    <div id="note-board"></div>
+  </div>
+
+  <script src="function.js"></script>
 </body>
 </html>
